@@ -186,11 +186,14 @@ def test(args, dataset):
         summary_writer.add_scalar('final_test/click_loss', test_click_loss, i)
         summary_writer.add_scalar('final_test/perplexity', perplexity, i)
 
-        print('For i =', i)
-        print('final_valid/avg_click_loss:', sum_click_loss / (i + 1))
-        print('final_valid/avg_perplexity:', sum_perplexity / (i + 1))
-        print('final_valid/click_loss:', test_click_loss)
-        print('final_valid/perplexity:', perplexity)
+        # print('For i =', i)
+        # print('final_valid/avg_click_loss:', sum_click_loss / (i + 1))
+        # print('final_valid/avg_perplexity:', sum_perplexity / (i + 1))
+        # print('final_valid/click_loss:', test_click_loss)
+        # print('final_valid/perplexity:', perplexity)
+
+    print("log-likelihood (LL)", "=", sum_click_loss.item() / args.num_iter)
+    print("perplexity (PPL)", "=", sum_perplexity.item() / args.num_iter)
 
 def rank(args, dataset):
     """
